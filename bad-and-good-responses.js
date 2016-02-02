@@ -14,8 +14,12 @@ var GOODPORT = 7000;
 
 var BADPORT = 7500;
 
+var goodCompliments = ["You have beautiful eyes!", "When you look at me I instantly blush!", "My heart drops when I look at you!"];
+
+var badCompliments = ["You smell like New York City garbage! Now give me your money!", "I hate you more than I hate Justin Bieber!", "You are an insult to the human race!"]
+
 var handleRequest = function (req, res) {
-  res.end("You have beautiful eyes! When you look at me I instantly blush! It worked! You hit: " + req.url);
+  res.end(goodCompliments[(Math.floor(Math.random() * (10)) * goodCompliments.length)];
 }
 
 var server = http.createServer(handleRequest);
@@ -25,7 +29,7 @@ server.listen(GOODPORT, function() {
 });
 
 var handleRequest = function (req, res) {
-  res.end("You smell like New York City garbage! Now give me your money! It worked! You hit: " + req.url);
+  res.end(badCompliments[(Math.floor(Math.random() * (10)) * badCompliments.length)];
 }
 
 var server = http.createServer(handleRequest);
