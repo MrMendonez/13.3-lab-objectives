@@ -18,8 +18,13 @@ var goodCompliments = ["You have beautiful eyes!", "When you look at me I instan
 
 var badCompliments = ["You smell like New York City garbage! Now give me your money!", "I hate you more than I hate Justin Bieber!", "You are an insult to the human race!"]
 
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 var handleRequest = function (req, res) {
-  res.end(goodCompliments[(Math.floor(Math.random() * (10)) * goodCompliments.length)];
+  var num = getRandomInt(0, goodCompliments.length);
+  res.end(goodCompliments[num]);
 }
 
 var server = http.createServer(handleRequest);
@@ -29,7 +34,8 @@ server.listen(GOODPORT, function() {
 });
 
 var handleRequest = function (req, res) {
-  res.end(badCompliments[(Math.floor(Math.random() * (10)) * badCompliments.length)];
+  var num = getRandomInt(0, badCompliments.length);
+  res.end(badCompliments[num]);
 }
 
 var server = http.createServer(handleRequest);
@@ -37,37 +43,3 @@ var server = http.createServer(handleRequest);
 server.listen(BADPORT, function() {
   console.log("Server is listening at http://localhost:%s", BADPORT);
 });
-
-// Solution from Jim Mona
-
-// var http = require("http");
-// var PORT = 7000;
-// var goodThings = ["You're awesome", "You have great taste", "You look fantastic today", "You are an expert developer"]
-// var badThings =["You suck bro", "You're having a bad hair day", "That dress does make you look fat", "You're a bad person and you should feel bad"]
-// function getRandomInt(min, max) {
-//   return Math.floor(Math.random() * (max - min)) + min;
-// }
-
-// var handleRequest = function (req, res) {
-//   var num = getRandomInt(0, goodThings.length);
-//   res.end(goodThings[num]);
-// }
-
-// var server = http.createServer(handleRequest);
-
-// server.listen(PORT, function() {
-//   console.log("Server is listening at http://localhost:%s", PORT);
-// });
-
-// var PORT2 = 7500;
-
-// var handleRequest = function (req, res) {
-//   var num = getRandomInt(0, badThings.length);
-//   res.end(badThings[num]);
-// }
-
-// var server = http.createServer(handleRequest);
-
-// server.listen(PORT2, function() {
-//   console.log("Server is listening at http://localhost:%s", PORT2);
-// });
