@@ -16,13 +16,13 @@ var handleRequest = function (req, res) {
     case '/':
       display_root(req, res);
       break;
-    case '/fave-food.html':
+    case '/fave-food':
       display_favfood(req, res);
       break;
-    case '/fave-movies.html':
-      display_favcss(req, res);
+    case '/fave-movies':
+      display_favmovie(req, res);
       break;
-    case '/fave-css.html':
+    case '/fave-css':
       display_favcss(req, res);
       break;
     default:
